@@ -3,15 +3,15 @@
 <%= form_for :post, url: posts_path do |f| %>
 	<p>
 	<%= f.label :title %><br>
-	<%= f.text_field :title %>
+	<%= f.text_field(:title, {:class => 'form-control'}) %>
 	</p>
 
 	<p>
 	<%= f.label :body %><br>
-	<%= f.text_field :body %>
+	<%= f.text_area(:body, {:class => 'form-control'}) %>
 	</p>
 
 	<p>
-	<%= f.submit %>
+	<%= f.submit({:class => 'btn btn-primary' }) %>
 	</p>
 <% end %>
