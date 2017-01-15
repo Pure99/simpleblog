@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  http_basic_authenticate_with name: "brad", password: "1234", except: [:index, :show]
 	def index
-      @post = Post.all
+      @posts = Post.all
 	end
 
 	def show
@@ -39,7 +40,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 
-		redirect_to post_path
+		redirect_to home_path
 	end
 
 
