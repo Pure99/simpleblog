@@ -9,9 +9,11 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: aaaassss
+  password: 
   host: localhost
+  port: 3306
   database: mysqlapp_development 
+  socket: C:/xampp/mysql/mysql.sock
   socket: /var/run/mysqld/mysqld.sock
 #  socket: /tmp/mysql.sock
 
