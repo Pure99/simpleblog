@@ -6,3 +6,17 @@
 		<%= link_to "Читать далее", post_path(post), :class => 'btn btn-default' %>
 	</div>
 <% end %>
+
+
+
+<%= a=[2,3,5,7,1,4,6] %>
+<div class="well">
+<% sum, max, min, size, mid_s, sumR = @p1.sum_p a %>
+<%=  "maksimalynoe znachenie = #{max}" %><br>
+<%=  "minimalynoe znachenie = #{min}" %><br>
+<%=  "razmer massiva = #{size}" %><br>
+<%=  "srednee znachenie = #{mid_s}" %><br>
+<%=  "summa raznostey kvadratov = #{sumR}" %>
+</div>
+<%# p1 = Var.new %>
+<%#= @p1.sum_p a %>
