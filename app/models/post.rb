@@ -1,8 +1,7 @@
 class Post < ApplicationRecord
   has_many :comments
   validates :title, presence: true, length: {minimum:5}
-
-	
+  
 end
 
 class Var
@@ -34,11 +33,18 @@ end
 #puts self.alfa 7
 def sum_p (a)
     if a.class == Array
-       sum=0
+       sum=0.0
        sumR=0
-   a.each { |x| sum = sum + x } #сумма всех элементов массива
-   a.each { |x| sumR = sumR + (x-sum/a.size)**2 }
-return sum, a.max, a.min, a.size, sum/a.size, sumR
+       a.each { |x| sum = sum + x } #сумма всех элементов массива
+       a.each { |x| sumR = sumR + (x-sum/a.size)**2 } # сумма квадратов разностей 
+   		if a.size > 6 
+   			s_m = Math.sqrt(sumR/(a.size-1)) # среднее кввадратическое отклонение
+		else
+			s_m = ((a.max-a.min)/alfa(a.size))
+		end
+		s_v = (s_m*100/(sum/a.size)).round(1) # коэффициент вариации
+   		k_t = interpol s_v #коэффициент требуемой прочности 
+		return sum, a.max, a.min, a.size, sum/a.size, sumR.round(1), a.max-a.min, s_m.round(1), s_v, k_t
  	end
 puts 'not array'
 end

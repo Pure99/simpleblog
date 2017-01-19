@@ -9,14 +9,18 @@
 
 
 
-<%= a=[2,3,5,7,1,4,6] %>
+<%= a=[39.3,40.2,41,37.1,36.9,40.3,42.0,47.1,44.7,41.6,44.1,43.4,36.1] %>
 <div class="well">
-<% sum, max, min, size, mid_s, sumR = @p1.sum_p a %>
-<%=  "maksimalynoe znachenie = #{max}" %><br>
-<%=  "minimalynoe znachenie = #{min}" %><br>
-<%=  "razmer massiva = #{size}" %><br>
-<%=  "srednee znachenie = #{mid_s}" %><br>
-<%=  "summa raznostey kvadratov = #{sumR}" %>
+<% sum, max, min, size, mid_s, sumR, max_min, s_m, v_m, k_t = @p1.sum_p a %>
+<%=  "Максимальное значение = #{max}" %><br>
+<%=  "Минимальное значение = #{min}" %><br>
+<%=  "Количество значений = #{size}" %><br>
+<%=  "Среднее значение = #{mid_s}" %><br>
+<%=  "Сумма разностей квадратов = #{sumR}" %><br>
+<%=  "Размах единичных значений = #{max_min}" %><br>
+<%=  "Среднее кввадратическое отклонение = #{s_m}" %><br>
+<%=  "Коэффициент вариации = #{v_m}" %><br>
+<%=  "Коэффициент требуемой прочности = #{k_t}" %><br>
 </div>
 <%# p1 = Var.new %>
 <%#= @p1.sum_p a %>
