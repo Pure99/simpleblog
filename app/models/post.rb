@@ -44,18 +44,9 @@ def sum_p (a)
 		end
 		s_v = (s_m*100/(sum/a.size)).round(1) # коэффициент вариации
    		k_t = interpol s_v #коэффициент требуемой прочности 
-		return sum, a.max, a.min, a.size, sum/a.size, sumR.round(1), a.max-a.min, s_m.round(1), s_v, k_t
+		return sum.round(1), a.max, a.min, a.size, (sum/a.size).round(1), sumR.round(1), a.max-a.min, s_m.round(1), s_v, k_t
  	end
 puts 'not array'
 end
   
 end
-
-  a=[2,3]
-#sum, max, min, size, mid_s, sumR = sum_p  a
-#puts "summa prochnosrey = #{sum}"
-#puts "maksimalynoe znachenie = #{max}"
-#puts "minimalynoe znachenie = #{min}"
-#puts "razmer massiva = #{size}"
-#puts "srednee znachenie = #{mid_s}"
-#puts "summa raznostey kvadratov = #{sumR}"
