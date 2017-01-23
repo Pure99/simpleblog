@@ -1,4 +1,6 @@
 <h1>Add Post</h1>
+<div class="table-responsive">
+            
 
 <%= form_for :post, url: posts_path do |f| %>
 	<% if @post.errors.any? %>
@@ -6,6 +8,32 @@
 		<div class="alert alert-danger"><%= msg %></div>
 		<% end %>
 		<% end %>
+		<table class="table table-striped">
+              <thead>
+                <tr >
+                  <th>Дата</th>
+                  <th>Прочность на 1 сутки, МПа</th>
+                  <th>Прочность на 1 сутки, %</th>
+                  <th>Прочность на 28 сутки, МПа</th>
+                  <th>Прочность на 28 сутки, %</th>
+                  <th>Прирост прочности, МПа</th>
+                  <th>Прирост прочности, %</th>
+                  <th>Примечания</th>
+                </tr>
+              </thead>
+              <tbody>
+		<tr contenteditable="true">
+                  <td><%= f.text_field(:date, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_1_mpa, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_1_p, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_28_mpa, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_28_p, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_pr_mpa, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_pr_p, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:mark, {:class => 'form-control'}) %></td>
+                </tr>
+                </tbody>
+            </table>
 	<p>
 	<%= f.label :title %><br>
 	<%= f.text_field(:title, {:class => 'form-control'}) %>
@@ -19,6 +47,9 @@
 	<p>
 	<%= f.submit({:class => 'btn btn-primary', :value => 'Сохранить пост'}) %>
 	</p>
-<% end %>
 
+<% end %>
+ 
+          </div>
 <h1>Добавить таблицу</h1>
+
