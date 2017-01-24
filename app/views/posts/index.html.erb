@@ -22,36 +22,18 @@
                 </tr>
               </thead>
               <tbody>
+              <% @posts.each do |post| %>
                 <tr contenteditable="true">
-                  <td>28.12.2015</td>
-                  <td>20,6</td>
-                  <td>70</td>
-                  <td>30,2</td>
-                  <td>103</td>
-                  <td>9,6</td>
-                  <td>33</td>
-                  <td>103</td>
+                  <td><%= post.date %></td>
+                  <td><%= post.pr_1_mpa %></td>
+                  <td><%= post.pr_1_p %></td>
+                  <td><%= post.pr_28_mpa %></td>
+                  <td><%= post.pr_28_p %></td>
+                  <td><%= post.pr_pr_mpa %></td>
+                  <td><%= post.pr_pr_p %></td>
+                  <td><%= post.mark %></td>
                 </tr>
-                <tr>
-                  <td>28.12.2015</td>
-                  <td>20,6</td>
-                  <td>70</td>
-                  <td>30,2</td>
-                  <td>103</td>
-                  <td>9,6</td>
-                  <td>33</td>
-                  <td>103</td>
-                </tr>
-                <tr>
-                  <td>28.12.2015</td>
-                  <td>20,6</td>
-                  <td>70</td>
-                  <td>30,2</td>
-                  <td>103</td>
-                  <td>9,6</td>
-                  <td>33</td>
-                  <td>103</td>
-                </tr>
+               <% end %>
               </tbody>
             </table>
           </div>

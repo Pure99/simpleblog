@@ -7,10 +7,12 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+
   end
 
 	def new
 		@post = Post.new
+		@posts = Post.all
 	end
 
 	def create
@@ -46,6 +48,6 @@ class PostsController < ApplicationController
 
 
 	private def post_params
-		params.require(:post).permit(:title, :body)
+		params.require(:post).permit(:title, :body, :date, :pr_1_mpa, :pr_1_p, :pr_28_mpa, :pr_28_p, :pr_pr_mpa, :pr_pr_p, :mark)
   end
 end
