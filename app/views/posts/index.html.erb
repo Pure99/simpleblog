@@ -1,4 +1,5 @@
 <h1>Blog Posts</h1>
+
 <% @posts.each do |post| %>
 	<div class="well">
 		<h3><%= post.title %></h3>
@@ -6,7 +7,7 @@
 		<%= link_to "Читать далее", post_path(post), :class => 'btn btn-default' %>
 	</div>
 <% end %>
-
+<!--  
 <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -38,7 +39,7 @@
             </table>
           </div>
 
-
+-->
 
 <%= a=[39.3,40.2,41,37.1,36.9,40.3,42.0,47.1,44.7,41.6,44.1,43.4,36.1] %>
 <div class="well">

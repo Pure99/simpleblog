@@ -1,17 +1,93 @@
 <h3>Add Comment</h3>
-
+<div class="table-responsive">
 <%= form_for([@post, @post.comments.build]) do |f| %>
-      <p>
-	<%= f.label :username %><br>
-	<%= f.text_field(:username, {:class => 'form-control'}) %>
-      </p>
-
-      <p>
-	<%= f.label :body %><br>
-	<%= f.text_area(:body, {:class => 'form-control'}) %>
-      </p>
-
+            <table class="table table-striped">
+              <thead>
+                <tr >
+                  <th>Дата</th>
+                  <th>Прочность на 1 сутки, МПа</th>
+                  <th>Прочность на 1 сутки, %</th>
+                  <th>Прочность на 28 сутки, МПа</th>
+                  <th>Прочность на 28 сутки, %</th>
+                  <th>Прирост прочности, МПа</th>
+                  <th>Прирост прочности, %</th>
+                  <th>Примечания</th>
+                </tr>
+              </thead>
+              <tbody>
+                    <tr contenteditable="true">
+                  <td><%= f.text_field(:date, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_1_mpa, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_1_p, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_28_mpa, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_28_p, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_pr_mpa, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:pr_pr_p, {:class => 'form-control'}) %></td>
+                  <td><%= f.text_field(:mark, {:class => 'form-control'}) %></td>
+                </tr>
+                </tbody>
+            </table>
       <p>
 	<%= f.submit({:class => 'btn btn-primary', :value => 'Сохранить коментарий' }) %>
       </p>
 <% end %>
+</div></div>
+<%= a =[39.3,40.2,41,37.1,36.9,40.3,42.0,47.1,44.7,41.6,44.1,43.4,36.1] %>
+<div class="well">
+<% sum, max, min, size, mid_s, sumR, max_min, s_m, v_m, k_t = @p1.sum_p a %>
+<%=  "Максимальное значение = #{max}" %><br>
+<%=  "Минимальное значение = #{min}" %><br>
+<%=  "Количество значений = #{size}" %><br>
+<%=  "Среднее значение = #{mid_s}" %><br>
+<%=  "Сумма разностей квадратов = #{sumR}" %><br>
+<%=  "Размах единичных значений = #{max_min}" %><br>
+<%=  "Среднее кввадратическое отклонение = #{s_m}" %><br>
+<%=  "Коэффициент вариации = #{v_m}" %><br>
+<%=  "Коэффициент требуемой прочности = #{k_t}" %><br>
+</div>
+<div class="well">
+<div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>№п/п</th>
+                  <th>Дата изготовления</th>
+                  <th>Прочность серии образцов Ri, МПа</th>
+                  <th>Фактическая прочность Rm, МПа</th>
+                  <th>(Ri-Rm)2</th>
+                  <th>Размах единичных значений Wm, МПа</th>
+                  <th>Среднее квадротическое отклонение Sm, МПа</th>
+                  <th>Коэффициент вариации Vm, %</th>
+                  <th>Коэффициент требуемой прочности Кт</th>
+                  <th>Требуемая прочность Rt, МПа</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% a.each_with_index do |element, index| %>
+                <tr>
+                  <td><%= index+1 %></td>
+                  <td><%= current_time = DateTime.now.strftime "%d/%m/%Y" %></td>
+                  <td><%= element %></td>
+                  <td></td>
+                  <td><%= ((element-mid_s)**2).round(1) %></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+               <% end %>
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td><%= sum %></td>
+                  <td><%= mid_s %></td>
+                  <td><%= sumR %></td>
+                  <td><%= max_min %></td>
+                  <td><%= s_m %></td>
+                  <td><%= v_m %></td>
+                  <td><%= k_t %></td>
+              </tbody>
+            </table>
+          </div>
+</div>

@@ -8,6 +8,15 @@
 		<div class="alert alert-danger"><%= msg %></div>
 		<% end %>
 		<% end %>
+		<p>
+	<%= f.label :title %><br>
+	<%= f.text_field(:title, {:class => 'form-control'}) %>
+	</p>
+
+	<p>
+	<%= f.label :body %><br>
+	<%= f.text_area(:body, {:class => 'form-control'}) %>
+	</p>
 		<table class="table table-striped">
               <thead>
                 <tr >
@@ -35,16 +44,6 @@
                 </tbody>
             </table>
 	<p>
-	<%= f.label :title %><br>
-	<%= f.text_field(:title, {:class => 'form-control'}) %>
-	</p>
-
-	<p>
-	<%= f.label :body %><br>
-	<%= f.text_area(:body, {:class => 'form-control'}) %>
-	</p>
-
-	<p>
 	<%= f.submit({:class => 'btn btn-primary', :value => 'Сохранить пост'}) %>
 	</p>
 
@@ -52,5 +51,4 @@
  
           </div>
 <h1>Добавить таблицу</h1>
-
 
