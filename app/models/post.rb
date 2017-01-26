@@ -5,9 +5,7 @@ class Post < ApplicationRecord
 end
 
 class Var
-    def initialize
-    puts "Hi there"
-  end
+    
 def interpol (x)
     if 0<x&&x<6 then z=1.07 
     elsif 6<=x&&x<8 then z=(0.01*x+1.01).round(2) 
@@ -33,7 +31,7 @@ end
 #puts self.alfa 7
 def sum_p (a)
     if a.class == Array
-       sum=0.0
+       sum=0
        sumR=0
        a.each { |x| sum = sum + x } #сумма всех элементов массива
        a.each { |x| sumR = sumR + (x-sum/a.size)**2 } # сумма квадратов разностей 
