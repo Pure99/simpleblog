@@ -30,20 +30,19 @@
     end
   #puts self.alfa 7
   def sum_p (a)
-    if a.class == Array
+    if a.class == Array && a != [nil]
      sum=0
      sumR=0
          a.each { |x| sum = sum + x } #сумма всех элементов массива
          a.each { |x| sumR = sumR + (x-sum/a.size)**2 } # сумма квадратов разностей 
          if a.size > 6 
      			s_m = Math.sqrt(sumR/(a.size-1)) # среднее кввадратическое отклонение
-        elsif a.size <= 6&& a.size > 0
-         s_m = ((a.max-a.min)/alfa(a.size))
-       else 
-return
-        s_m =0
-       end
-  		s_v = (s_m*100/(sum/a.size)).round(1) # коэффициент вариации
+          elsif a.size <= 6 && a.size > 1
+              s_m = ((a.max-a.min)/alfa(a.size))
+         else 
+          return 0
+          end
+  		  s_v = (s_m*100/(sum/a.size)).round(1) # коэффициент вариации
      		k_t = interpol s_v #коэффициент требуемой прочности 
         return sum.round(1), a.max, a.min, a.size, (sum/a.size).round(1), sumR.round(1), a.max-a.min, s_m.round(1), s_v, k_t
       end

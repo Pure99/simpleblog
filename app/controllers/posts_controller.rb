@@ -8,6 +8,12 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 		@p1 = Var.new
+		 a =[] 
+        @post.comments.each do |comment| 
+        a << comment.pr_28_mpa  
+        end
+
+  @sum, @max, @min, @size, @mid_s, @sumR, @max_min, @s_m, @v_m, @k_t = @p1.sum_p a 
   end
 
 	def new
@@ -28,6 +34,12 @@ class PostsController < ApplicationController
 	def edit
 		@post = Post.find(params[:id])
 		@p1 = Var.new
+		a =[] 
+        @post.comments.each do |comment| 
+        a << comment.pr_28_mpa  
+        end
+  @sum, @max, @min, @size, @mid_s, @sumR, @max_min, @s_m, @v_m, @k_t = @p1.sum_p a 
+
 	end	
 
 	def update 

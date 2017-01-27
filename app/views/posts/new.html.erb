@@ -17,32 +17,7 @@
 	<%= f.label :body %><br>
 	<%= f.text_area(:body, {:class => 'form-control'}) %>
 	</p>
-		<table class="table table-striped">
-              <thead>
-                <tr >
-                  <th>Дата</th>
-                  <th>Прочность на 1 сутки, МПа</th>
-                  <th>Прочность на 1 сутки, %</th>
-                  <th>Прочность на 28 сутки, МПа</th>
-                  <th>Прочность на 28 сутки, %</th>
-                  <th>Прирост прочности, МПа</th>
-                  <th>Прирост прочности, %</th>
-                  <th>Примечания</th>
-                </tr>
-              </thead>
-              <tbody>
-		        <tr contenteditable="true">
-                  <td><%= f.text_field(:date, {:class => 'form-control'}) %></td>
-                  <td><%= f.text_field(:pr_1_mpa, {:class => 'form-control'}) %></td>
-                  <td><%= f.text_field(:pr_1_p, {:class => 'form-control'}) %></td>
-                  <td><%= f.text_field(:pr_28_mpa, {:class => 'form-control'}) %></td>
-                  <td><%= f.text_field(:pr_28_p, {:class => 'form-control'}) %></td>
-                  <td><%= f.text_field(:pr_pr_mpa, {:class => 'form-control'}) %></td>
-                  <td><%= f.text_field(:pr_pr_p, {:class => 'form-control'}) %></td>
-                  <td><%= f.text_field(:mark, {:class => 'form-control'}) %></td>
-                </tr>
-                </tbody>
-            </table>
+		
 	<p>
 	<%= f.submit({:class => 'btn btn-primary', :value => 'Сохранить пост'}) %>
 	</p>

@@ -12,12 +12,11 @@
           <th>Прирост прочности, МПа</th>
           <th>Прирост прочности, %</th>
           <th>Примечания</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <% a =[] %>
         <% @post.comments.each do |comment| %>
-        <% a << comment.pr_28_mpa  %>
         <tr contenteditable="true">
           <td><%= comment.date %></td>
           <td><%= comment.pr_1_mpa %></td>
@@ -34,7 +33,6 @@
     </table>
   </div>  
 </div>    
-    <% sum, max, min, size, mid_s, sumR, max_min, s_m, v_m, k_t = @p1.sum_p a %>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -57,7 +55,7 @@
           <td><%= element.date %></td>
           <td><%= element.pr_28_mpa %></td>
           <td></td>
-          <td><%= ((element.pr_28_mpa-mid_s)**2).round(1) %></td>
+          <td><%= ((element.pr_28_mpa-@mid_s)**2).round(1) %></td>
           <td></td>
           <td></td>
           <td></td>
@@ -68,13 +66,13 @@
         <tr>
           <td></td>
           <td></td>
-          <td><%= sum %></td>
-          <td><%= mid_s %></td>
-          <td><%= sumR %></td>
-          <td><%= max_min %></td>
-          <td><%= s_m %></td>
-          <td><%= v_m %></td>
-          <td><%= k_t %></td>
+          <td><%= @sum %></td>
+          <td><%= @mid_s %></td>
+          <td><%= @sumR %></td>
+          <td><%= @max_min %></td>
+          <td><%= @s_m %></td>
+          <td><%= @v_m %></td>
+          <td><%= @k_t %></td>
       </tbody>
     </table>
     

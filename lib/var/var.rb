@@ -1,3 +1,4 @@
+=begin 
 class Var
 
 
@@ -42,4 +43,4 @@ puts "razmer massiva = #{size}"
 puts "srednee znachenie = #{mid_s}"
 puts "summa raznostey kvadratov = #{sumR}"
 end
-    p1 = Var.new
+   =end
