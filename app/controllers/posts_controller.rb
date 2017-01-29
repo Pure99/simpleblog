@@ -1,4 +1,4 @@
-	require './lib/var/var.rb' 
+	#require './lib/var/var.rb' 
 class PostsController < ApplicationController
 	http_basic_authenticate_with name: "brad", password: "1234", except: [:index, :show]
 

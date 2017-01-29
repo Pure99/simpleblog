@@ -1,7 +1,7 @@
 	class Comment < ApplicationRecord
 		belongs_to :post
 
-		def interpol (x)
+		def self.interpol (x)
 			if 0<x&&x<6 then z=1.07 
 			elsif 6<=x&&x<8 then z=(0.01*x+1.01).round(2) 
 			elsif 8<=x&&x<9 then z=(0.02*x+0.93).round(2) 
@@ -46,16 +46,16 @@
 
 
   def self.sumP a
-    	Comment.where(:post_id => a).sum('pr_28_mpa')
+   	Comment.where(:post_id => a).sum('pr_28_mpa')
   end 
 
   def self.midS a
-  		@midS=self.sumP(a)/Comment.where(:post_id => a).count('pr_28_mpa')
+  		midS=sumP(a)/Comment.where(:post_id => a).count('pr_28_mpa')
   end 
 
   def self.sumR a
   		sumR=0
-  		Comment.where(:post_id => a).each { |x| sumR = sumR + (x.pr_28_mpa-self.midS(a))**2 }
+  		Comment.where(:post_id => a).each { |x| sumR = sumR + (x.pr_28_mpa-midS(a))**2 }
   		return sumR
   end 
 
@@ -65,12 +65,26 @@
 
   def self.s_m a
   	if Comment.where(:post_id => a).count('pr_28_mpa') > 6
-  	s_m = Math.sqrt(self.sumR(a)/(Comment.where(:post_id => a).count('pr_28_mpa')-1)) 
+  	s_m = Math.sqrt(sumR(a)/(Comment.where(:post_id => a).count('pr_28_mpa')-1)) 
   elsif Comment.where(:post_id => a).count('pr_28_mpa') <= 6
-  	s_m = ((self.max_min(a))/self.alfa(Comment.where(:post_id => a).count('pr_28_mpa')))
+  	s_m = max_min(a)/alfa(Comment.where(:post_id => a).count('pr_28_mpa'))
   end
     return s_m.round(1)
   end 
+
+  def self.v_m a
+   	v_m = (s_m(a)*100/midS(a)).round(1)
+  end 
+
+  def self.k_t a
+   	k_t = interpol(v_m(a)) #коэффициент требуемой прочности 
+  end 
+
+  def self.r_t a
+   	r_t = k_t(a)*(/(B|В)(15|22,5|25)/.match('Сводная По составу №1 В25F100hjc25hgkhgkgl25')[2]).to_i
+   	#/(B|В)(15|22,5|25)/.match('Сводная По составу №1 В25F100hjc25hgkhgkgl25')[2]
+  end 
+
 
 
 end
