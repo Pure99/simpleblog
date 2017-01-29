@@ -1,4 +1,4 @@
-<h3>Comments</h3>
+<h3>Таблица</h3>
 <div class="well">
   <div class="table-responsive">
     <table class="table table-striped">
@@ -33,46 +33,5 @@
     </table>
   </div>  
 </div>    
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>№п/п</th>
-          <th>Дата изготовления</th>
-          <th>Прочность серии образцов Ri, МПа</th>
-          <th>Фактическая прочность Rm, МПа</th>
-          <th>(Ri-Rm)2</th>
-          <th>Размах единичных значений Wm, МПа</th>
-          <th>Среднее квадротическое отклонение Sm, МПа</th>
-          <th>Коэффициент вариации Vm, %</th>
-          <th>Коэффициент требуемой прочности Кт</th>
-          <th>Требуемая прочность Rt, МПа</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @post.comments.each_with_index do |element, index| %>
-        <tr>
-          <td><%= index+1 %></td>
-          <td><%= element.date %></td>
-          <td><%= element.pr_28_mpa %></td>
-          <td></td>
-          <td><%= ((element.pr_28_mpa-@mid_s)**2).round(1) %></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <% end %>
-        <tr>
-          <td></td>
-          <td></td>
-          <td><%= @sum %></td>
-          <td><%= @mid_s %></td>
-          <td><%= @sumR %></td>
-          <td><%= @max_min %></td>
-          <td><%= @s_m %></td>
-          <td><%= @v_m %></td>
-          <td><%= @k_t %></td>
-      </tbody>
-    </table>
+    
     

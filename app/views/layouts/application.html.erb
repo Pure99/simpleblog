@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simpleblog</title>
-    
-    
-    <%=  stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %> 
-<%=  javascript_include_tag 'https://code.jquery.com/jquery-3.1.1.min.js' %> 
-
-
-    
-    <%= stylesheet_link_tag    "application.css", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
-    
-    <%= csrf_meta_tags %>
-
-    
-  
-    
-  </head>
+<head>
+  <title>Simpleblog</title>
+  <%=  stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' %> 
+  <%=  javascript_include_tag 'https://code.jquery.com/jquery-3.1.1.min.js' %> 
+  <%= stylesheet_link_tag    "application.css", media: "all", "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
 
   <body>
       <nav class="navbar navbar-default">
@@ -33,12 +23,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-              <li><%= link_to "Home", home_path %> </li>
-            
+            <li><%= link_to "Home", home_path %> </li>
           </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to "Create Post", new_post_path %> </li>
-            
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Create Post", new_post_path %> </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
