@@ -45,43 +45,7 @@
     </table>
      </div>
 </div> 
-<h3>Добавить строку</h3>
-<div class="well">
-  <div class="table-responsive">
-<form class="new_comment" id="new_comment" action="/posts/1/comments" accept-charset="UTF-8" method="post"><input name="utf8" value="✓" type="hidden"><input name="authenticity_token" value="6wQXPWwaKHtrNNnlufmk8pkCgH0Rjl57fi60SIXaSiZjpA1eaLm2cf/qmgBpKicdicN+dDfICV5/OCqjbw+pIg==" type="hidden">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Дата</th>
-          <th>Прочность на 1 сутки, МПа</th>
-          <th>Прочность на 1 сутки, %</th>
-          <th>Прочность на 28 сутки, МПа</th>
-          <th>Прочность на 28 сутки, %</th>
-          <th>Прирост прочности, МПа</th>
-          <th>Прирост прочности, %</th>
-          <th>Примечания</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr contenteditable="true">
-          <td><input class="form-control" name="comment[date]" id="comment_date" type="text"></td>
-          <td><input class="form-control" name="comment[pr_1_mpa]" id="comment_pr_1_mpa" type="text"></td>
-          <td><input class="form-control" name="comment[pr_1_p]" id="comment_pr_1_p" type="text"></td>
-          <td><input class="form-control" name="comment[pr_28_mpa]" id="comment_pr_28_mpa" type="text"></td>
-          <td><input class="form-control" name="comment[pr_28_p]" id="comment_pr_28_p" type="text"></td>
-          <td><input class="form-control" name="comment[pr_pr_mpa]" id="comment_pr_pr_mpa" type="text"></td>
-          <td><input class="form-control" name="comment[pr_pr_p]" id="comment_pr_pr_p" type="text"></td>
-          <td><input class="form-control" name="comment[mark]" id="comment_mark" type="text"></td>
-        </tr>
-      </tbody>
-    </table>
-    <p>
-     <input name="commit" value="Сохранить коментарий" class="btn btn-primary" data-disable-with="Create Comment" type="submit">
-   </p>
-</form>
 
-  </div>  
-</div>    
 <%= render 'comments/resault' %>
 <h3>Добавить строку</h3>
 <div class="well">
