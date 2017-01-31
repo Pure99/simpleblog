@@ -1,0 +1,53 @@
+<h3>Результат</h3>
+<div class="well">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>№п/п</th>
+          <th>Дата изготовления</th>
+          <th>Прочность серии образцов Ri, МПа</th>
+          <th>Фактическая прочность Rm, МПа</th>
+          <th>(Ri-Rm)2</th>
+          <th>Размах единичных значений Wm, МПа</th>
+          <th>Среднее квадротическое отклонение Sm, МПа</th>
+          <th>Коэффициент вариации Vm, %</th>
+          <th>Коэффициент требуемой прочности Кт</th>
+          <th>Требуемая прочность Rt, МПа</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%# @post_r.comments.each_with_index do |element, index| %>
+        <% Comment.where(:post_id => @post.id).each_with_index do |element, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= element.date %></td>
+          <td><%= element.pr_28_mpa %></td>
+          <td></td>
+          <td><%= ((element.pr_28_mpa.to_f-Comment.midS(@post.id))**2) %><%#= Comment.midS(@post.id) %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <% end %>
+        <tr>
+          <td>Итог</td>
+          <td></td>
+          <td><%= Comment.sumP(@post.id)%></td>
+          <td><%= Comment.midS(@post.id)%></td>
+          <td><%= Comment.sumR(@post.id)%></td>
+          <td><%= Comment.max_min(@post.id)%><%#= Comment.maximum("pr_28_mpa")-Comment.minimum("pr_28_mpa") %></td>
+          <td><%= Comment.s_m(@post.id) %></td>
+          <td><%= Comment.v_m(@post.id) %></td>
+          <td><%= Comment.k_t(@post.id) %></td>
+          <td><%= Comment.r_t(@post.id,@post.title) %></td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% Comment.where(:post_id => @post.id).each_with_index do |element, index| %>
+
+<%= index %>
+  <% end %>

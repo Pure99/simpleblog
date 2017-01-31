@@ -1,10 +1,10 @@
-<h1>Blog Posts</h1>
+<h1>Сводные таблицы по составам</h1>
 
 <% @posts.each do |post| %>
 	<div class="well">
 		<h3><%= post.title %></h3>
 		<p><%= post.body %>  </p>
-		<%= link_to "Читать далее", post_path(post), :class => 'btn btn-default' %>
+		<%= link_to "Открыть таблицу", post_path(post), :class => 'btn btn-default' %>
 	</div>
 <% end %>
 

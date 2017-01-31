@@ -51,7 +51,7 @@
 
   def self.midS a
   	if Comment.where(:post_id => a).count('pr_28_mpa') != 0
-  		sumP(a)/Comment.where(:post_id => a).count('pr_28_mpa')
+  		(sumP(a)/Comment.where(:post_id => a).count('pr_28_mpa')).round(1)
   	else 
   		return 0
   	end
@@ -88,12 +88,17 @@
    	k_t = interpol(v_m(a)) #коэффициент требуемой прочности 
    end 
 
-   def self.r_t (a,str)
-   	(/(B|В)(15|22,5|25)/.match(str)).nil?
-   		r_t = k_t(a)*(/(B|В)(15|22,5|25)/.match(str)).to_f
+  def self.r_t (a,str)
+   	pat = /(B|В)(3,5|5|7,5|10|12,5|15|20|22,5|25|30|35|40|45|50|55|60)/
+   	m = pat.match(str)
+   	unless m
+   		r_t = 'Класс?'
+   	else 
+   		r_t = k_t(a)*m[2].to_f
+  	end
    	#/(B|В)(15|22,5|25)/.match('Сводная По составу №1 В25F100hjc25hgkhgkgl25')[2]
    
-end 
+  end 
 
 
 
