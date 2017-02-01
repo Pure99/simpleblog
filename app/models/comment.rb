@@ -57,9 +57,14 @@
   	end
   end 
 
+  def self.r_r a
+
+    Comment.where(:post_id => a).pr_28_mpa.to_f-midS(a)
+  end
+
   def self.sumR a
   	sumR=0
-  	Comment.where(:post_id => a).each { |x| sumR = sumR + (x.pr_28_mpa.to_f-midS(a))**2 }
+  	Comment.where(:post_id => a).each { |x| sumR = sumR + ((x.pr_28_mpa.to_f-midS(a))**2).round(1) }
   	return sumR
   end 
 
@@ -89,12 +94,12 @@
    end 
 
   def self.r_t (a,str)
-   	pat = /(B|В)(3,5|5|7,5|10|12,5|15|20|22,5|25|30|35|40|45|50|55|60)/
+   	pat = /(B|В)(3,5|3.5|5|7,5|7.5|10|12,5|12.5|15|20|22,5|22.5|25|30|35|40|45|50|55|60)/
    	m = pat.match(str)
    	unless m
    		r_t = 'Класс?'
    	else 
-   		r_t = k_t(a)*m[2].to_f
+   		r_t = (k_t(a)*m[2].to_f).round(1)
   	end
    	#/(B|В)(15|22,5|25)/.match('Сводная По составу №1 В25F100hjc25hgkhgkgl25')[2]
    

@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    http_basic_authenticate_with name: "brad", password: "1234", only: [:destroy]
+    http_basic_authenticate_with name: "a", password: "b", only: [:destroy]
    # def new
    # @post = Post.new
    # @posts = Post.all

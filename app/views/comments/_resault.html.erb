@@ -8,6 +8,7 @@
           <th>Дата изготовления</th>
           <th>Прочность серии образцов Ri, МПа</th>
           <th>Фактическая прочность Rm, МПа</th>
+          <th>Ri-Rm</th>
           <th>(Ri-Rm)2</th>
           <th>Размах единичных значений Wm, МПа</th>
           <th>Среднее квадротическое отклонение Sm, МПа</th>
@@ -24,8 +25,8 @@
           <td><%= element.date %></td>
           <td><%= element.pr_28_mpa %></td>
           <td></td>
-          <td><%= ((element.pr_28_mpa.to_f-Comment.midS(@post.id))**2) %><%#= Comment.midS(@post.id) %></td>
-          <td></td>
+          <td><%= element.pr_28_mpa.to_f-Comment.midS(@post.id) %></td>
+          <td><%= ((element.pr_28_mpa.to_f-Comment.midS(@post.id))**2).round(1) %><%#= Comment.midS(@post.id) %></td>
           <td></td>
           <td></td>
           <td></td>
@@ -37,6 +38,7 @@
           <td></td>
           <td><%= Comment.sumP(@post.id)%></td>
           <td><%= Comment.midS(@post.id)%></td>
+          <td></td>
           <td><%= Comment.sumR(@post.id)%></td>
           <td><%= Comment.max_min(@post.id)%><%#= Comment.maximum("pr_28_mpa")-Comment.minimum("pr_28_mpa") %></td>
           <td><%= Comment.s_m(@post.id) %></td>
